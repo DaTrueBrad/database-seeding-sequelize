@@ -35,14 +35,7 @@ const pets = [
 ]
 
 const seedDatabase = async() => {
-  pets.forEach(async (animal) => {
-    await Pet.create({
-      name: animal.name,
-      description: animal.description,
-      price: animal.price,
-      discount: animal.discount
-    })
-  })
+    await Pet.bulkCreate(pets)
 }
 
 module.exports = {seedDatabase}
